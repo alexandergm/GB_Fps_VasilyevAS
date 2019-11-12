@@ -2,47 +2,33 @@
 
 namespace Geekbrains
 {
-    public sealed class FlashLightModel : BaseObjectScene
-    {
-        private Light _light;
-        private Transform _goFollow;
-        private Vector3 _vecOffset;
-        public float BatteryChargeCurrent { get; private set; }
-        [SerializeField] private float _speed = 10;
-        [SerializeField] public float _batteryChargeMax;
+	public sealed class FlashLightModel : BaseObjectScene
+	{
+		public Light Light;
+        public Transform GoFollow;
+        public Vector3 VecOffset;
+        public float BatteryChargeCurrent;
+        public float Speed = 10;
+        private float _batteryChargeMax = 50;
+        public float Intensity = 1.5f;
+        public float Share;
+        public float TakeAwayTheIntensity;
 
-        protected override void Awake()
-        {
-            base.Awake();
-            _light = GetComponent<Light>();
-            _goFollow = Camera.main.transform;
-            _vecOffset = transform.position - _goFollow.position;
-            BatteryChargeCurrent = _batteryChargeMax;
-        }
+		public float Charge => BatteryChargeCurrent / BatteryChargeMax;
 
-        public void Switch(bool value)
-        {
-            _light.enabled = value;
-            if (!value) return;
-            transform.position = _goFollow.position + _vecOffset;
-            transform.rotation = _goFollow.rotation;
-        }
+		public float BatteryChargeMax => _batteryChargeMax;
 
-        public void Rotation()
-        {
-            transform.position = _goFollow.position + _vecOffset;
-            transform.rotation = Quaternion.Lerp(transform.rotation,
-                _goFollow.rotation, _speed * Time.deltaTime);
-        }
+		protected override void Awake()
+		{
+			base.Awake();
+			Light = GetComponent<Light>();
 
-        public bool EditBatteryCharge()
-        {
-            if (BatteryChargeCurrent > 0)
-            {
-                BatteryChargeCurrent -= Time.deltaTime;
-                return true;
-            }
-            return false;
-        }
-    }
+            GoFollow = Camera.main.transform;
+            VecOffset = transform.position - GoFollow.position;
+			BatteryChargeCurrent = BatteryChargeMax;
+			Light.intensity = Intensity;
+            Share = BatteryChargeMax / 4;
+            TakeAwayTheIntensity = Intensity / (BatteryChargeMax * 100);
+		}
+	}
 }

@@ -2,57 +2,102 @@
 
 namespace Geekbrains
 {
-    public sealed class FlashLightController : BaseController, IOnUpdate, IInitialization
-    {
-        private FlashLightModel _flashLightModel;
-        private FlashLightUi _flashLightUi;
+	public class FlashLightController : BaseController, IOnUpdate, IInitialization
+	{
+		private FlashLightModel _flashLight;
+		
+		public void OnUpdate()
+		{
+			if (!IsActive) return;
+			
+			if (EditBatteryCharge())
+			{
+				UiInterface.LightUiText.Text = _flashLight.BatteryChargeCurrent;
+				UiInterface.FlashLightUiBar.Fill = _flashLight.Charge;
+				Rotation();
 
-        public void Init()
-        {
-            _flashLightModel = Object.FindObjectOfType<FlashLightModel>();
-            _flashLightUi = Object.FindObjectOfType<FlashLightUi>();
+				if (_flashLight.BatteryChargeCurrent <= _flashLight.BatteryChargeMax/2)
+				{
+					UiInterface.FlashLightUiBar.SetColor(Color.red);
+				}
+			}
+			else
+			{
+				Off();
+			}
+		}
+
+		public void OnStart()
+		{
+			_flashLight = Main.Instance.Inventory.FlashLight;
+			UiInterface.LightUiText.SetActive(false);
+			UiInterface.FlashLightUiBar.SetActive(false);
+            Switch(false);
         }
 
-        public override void On()
-        {
-            if(IsActive) return;
-            if (_flashLightModel == null) return;
-            if (_flashLightUi == null) return;
-            if (_flashLightModel.BatteryChargeCurrent <= 0) return;
-            base.On();
-            _flashLightModel.Switch(true);
-            _flashLightUi.SetActive(true);
+		public override void On()
+		{
+			if (IsActive)return;
+			if (_flashLight.BatteryChargeCurrent <= 0) return;
+			base.On();
+			Switch(true);
+			UiInterface.LightUiText.SetActive(true);
+			UiInterface.FlashLightUiBar.SetActive(true);
+			UiInterface.FlashLightUiBar.SetColor(Color.green);
+		}
+
+		public sealed override void Off()
+		{
+			if (!IsActive) return;
+			base.Off();
+			Switch(false);
+			UiInterface.LightUiText.SetActive(false);
+			UiInterface.FlashLightUiBar.SetActive(false);
         }
 
-        public override void Off()
+        public void Switch(bool value)
         {
-            if (!IsActive) return;
-            base.Off();
-            _flashLightModel.Switch(false);
-            _flashLightUi.SetActive(false);
+            _flashLight.Light.enabled = value;
+            if (!value) return;
+            _flashLight.transform.position = _flashLight.GoFollow.position + _flashLight.VecOffset;
+            _flashLight.transform.rotation = _flashLight.GoFollow.rotation;
         }
 
-        public void OnUpdate()
+        public void Rotation()
         {
-            if(!IsActive)
+            _flashLight.transform.position = _flashLight.GoFollow.position + _flashLight.VecOffset;
+            _flashLight.transform.rotation = Quaternion.Lerp(_flashLight.transform.rotation,
+                _flashLight.GoFollow.rotation, _flashLight.Speed * Time.deltaTime);
+        }
+
+        public bool EditBatteryCharge()
+        {
+            if (_flashLight.BatteryChargeCurrent > 0)
             {
-                return;
-            }
-            else
-            {
-            // todo add 
+                _flashLight.BatteryChargeCurrent -= Time.deltaTime;
+
+                if (_flashLight.BatteryChargeCurrent < _flashLight.Share)
+                {
+                    _flashLight.Light.enabled = Random.Range(0, 100) >= Random.Range(0, 10);
+                }
+                else
+                {
+                    _flashLight.Light.intensity -= _flashLight.TakeAwayTheIntensity;
+                }
+                return true;
             }
 
-            _flashLightModel.Rotation();
-            if (_flashLightModel.EditBatteryCharge())
+            return false;
+        }
+
+        public bool BatteryRecharge()
+        {
+            if (_flashLight.BatteryChargeCurrent < _flashLight.BatteryChargeMax)
             {
-                _flashLightUi._slider.value = _flashLightModel.BatteryChargeCurrent/30;
+                _flashLight.BatteryChargeCurrent += Time.deltaTime;
+                return true;
             }
-            else
-            {
-                Off();
-              
-            }
+            return false;
         }
     }
 }

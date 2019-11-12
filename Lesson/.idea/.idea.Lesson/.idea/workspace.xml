@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="41e93a99-1356-4deb-8be3-51b79c01dc63" name="Default Changelist" comment="" />
+    <list default="true" id="dd6d7524-c3a2-4d60-b6d9-814c3847304d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -9,33 +9,49 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller/WeaponController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/View/AimUiText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/View/UiInterface.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/View/FlashLightUiBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/EF28F193-EAB6-4E49-B44B-3FB27EAB4F75/08/331f94eb/Type.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/BaseObjectScene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/View/WeaponUiText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scens/Main.unity" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller/SelectionController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller/BaseController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller/FlashLightController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/Aim.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Helper/Timer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/Gun.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Helper/InfoCollision.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/FlashLightModel.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/UnitMotor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/View/FlashLightUi.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/BaseObjectScene.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/Wall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Main.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller/InputController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interface/IOnUpdate.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controller/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/Inventory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/Clip.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Model/Ammunition.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Model/BaseObjectScene.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Model/FlashLightModel.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Controller/BaseController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/View/FlashLightUi.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Interface/IOnUpdate.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Controller/FlashLightController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Main.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Controller/InputController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Model/UnitMotor.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controller/SelectionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/View/UiInterface.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Model/Weapon.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Model/Gun.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Model/Ammunition.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Model/Bullet.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Helper/InfoCollision.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Model/Aim.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/View/AimUiText.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Model/Inventory.cs" />
       </list>
     </option>
   </component>
-  <component name="ProjectId" id="1TFXeRGdftSsbeEPWGQH20QEVQg" />
+  <component name="ProjectId" id="1TN9Z2MUYqCaGZzFpYLwlmvzxBf" />
   <component name="PropertiesComponent">
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
     <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
@@ -74,12 +90,12 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="41e93a99-1356-4deb-8be3-51b79c01dc63" name="Default Changelist" comment="" />
-      <created>1573056911898</created>
+      <changelist id="dd6d7524-c3a2-4d60-b6d9-814c3847304d" name="Default Changelist" comment="" />
+      <created>1573289743833</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573056911898</updated>
-      <workItem from="1573056914292" duration="5085000" />
+      <updated>1573289743833</updated>
+      <workItem from="1573289756096" duration="6666000" />
     </task>
     <servers />
   </component>

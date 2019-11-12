@@ -2,16 +2,60 @@
 
 namespace Geekbrains
 {
-    public sealed class InputController : BaseController, IOnUpdate
-    {
-        private KeyCode _activeFlashLight = KeyCode.F;
-        public void OnUpdate()
-        {
-            if (!IsActive) return;
-            if (Input.GetKeyDown(_activeFlashLight))
+	public class InputController : BaseController, IOnUpdate
+	{
+
+		private KeyCode _activeFlashLight = KeyCode.F;
+		private KeyCode _cancel = KeyCode.Escape;
+		private KeyCode _reloadClip = KeyCode.R;             
+
+		public InputController()
+		{
+			Cursor.lockState = CursorLockMode.Locked;
+		}
+		
+		public void OnUpdate()
+		{
+			if (!IsActive) return;
+			if (Input.GetKeyDown(_activeFlashLight))
+			{
+				Main.Instance.FlashLightController.Switch();
+			}
+
+            if (Input.GetAxis("Mouse ScrollWheel") > 0f)
             {
-                Main.Instance.FlashLightController.Switch();
+                SelectWeapon(0);
             }
-        }
-    }
+            if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+            {
+                SelectWeapon(1);
+            }
+
+            if (Input.GetKeyDown(_cancel))
+			{
+				Main.Instance.WeaponController.Off();
+				Main.Instance.FlashLightController.Off();
+			}
+
+			if (Input.GetKeyDown(_reloadClip))
+			{
+				Main.Instance.WeaponController.ReloadClip();
+			}
+		}
+
+
+		/// <summary>
+		/// Выбор оружия
+		/// </summary>
+		/// <param name="i">Номер оружия</param>
+		private void SelectWeapon(int i)
+		{
+			Main.Instance.WeaponController.Off();
+			var tempWeapon = Main.Instance.Inventory.Weapons[i]; // инкапсулировать
+			if (tempWeapon != null)
+			{
+				Main.Instance.WeaponController.On(tempWeapon);
+			}
+		}
+	}
 }

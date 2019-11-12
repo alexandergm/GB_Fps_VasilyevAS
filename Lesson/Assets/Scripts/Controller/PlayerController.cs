@@ -2,7 +2,7 @@
 {
 	public class PlayerController : BaseController, IOnUpdate
 	{
-		private readonly IMotor _motor;
+		private IMotor _motor;
 
 		public PlayerController(IMotor motor)
 		{
@@ -11,6 +11,7 @@
 
 		public void OnUpdate()
 		{
+			if (!IsActive) return;
 			_motor.Move();
 		}
 	}
