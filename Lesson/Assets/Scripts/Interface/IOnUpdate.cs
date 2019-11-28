@@ -1,7 +1,7 @@
 ﻿namespace Geekbrains
 {
-    public interface IOnUpdate
-    {
-        void OnUpdate();
-    }
+	public interface IOnUpdate
+	{
+		void OnUpdate();
+	}
 }
